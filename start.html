@@ -47,12 +47,13 @@
         <li><a href="#s2">2. 克隆并建分支</a></li>
         <li><a href="#s3">3. 改动并验证</a></li>
         <li><a href="#s4">4. 推送并开 PR</a></li>
+        <li><a href="#case">实战案例：搭建个人工作台</a></li>
         <li><a href="#check">上线检查清单</a></li>
         <li><a href="#faq">常见坑</a></li>
       </ol>
     </aside>
 
-    <article class="doc-body">
+    <article class="doc-body" style="min-width:0">
       <h2 id="s1">1. 打开工作区</h2>
       <p>工作区是会话绑定的沙箱环境。进去后先确认语言与工具链齐备，再开始动手——工作区默认是空目录，不会替你检出代码。</p>
       <ul>
@@ -85,6 +86,63 @@ gh pr create --base main --head feat/&lt;short-name&gt; \
   --title "feat: &lt;标题&gt;" --body "&lt;改动与验证说明&gt;"</code></pre>
       <p>没有 gh 时同样可以用 GitHub API 开 PR。开好的 PR 会自动登记到需求并跟踪合入，不需要你手动回填。</p>
       <div class="callout violet"><b>边界：</b>推主分支、强推、合并 PR 只在明确要求时执行；默认走「分支 + PR + 由你合并」。</div>
+
+      <h2 id="case">实战案例：从零搭建个人工作台</h2>
+      <p>目标：把上面的四步流程走成一次完整闭环，在本地做出一个可预览的个人工作台示例页。下面每一步都有明确产出和验证方式，照着做一遍即可。</p>
+
+      <h3>案例产物</h3>
+      <p>这个示例只做三个最小模块，采用原生 HTML / CSS / JavaScript，数据保存在浏览器 <code>localStorage</code>。它是教学示例，不需要在本仓库中真正实现应用代码。</p>
+      <div class="grid-3">
+        <div class="tile"><h4>待办清单</h4><p>新增、勾选完成、删除待办，刷新后仍保留。</p></div>
+        <div class="tile"><h4>快速笔记</h4><p>一页随手记录，输入后自动保存到本地浏览器。</p></div>
+        <div class="tile"><h4>常用链接</h4><p>集中放几个常用入口，点击即可在新标签页打开。</p></div>
+      </div>
+
+      <h3>操作步骤</h3>
+      <ol class="step-list">
+        <li>
+          <h4>新建需求</h4>
+          <p>在 LoopForge 新建需求 Issue，写清目标与验收标准（三个模块可用、刷新后数据仍在、窄屏可读），并关联目标仓库。产出：一条可追溯的需求，后续提交与 PR 都围绕它展开。</p>
+        </li>
+        <li>
+          <h4>打开工作区并建分支</h4>
+          <p>进入工作区，克隆目标仓库并新建功能分支；先读一遍 README 和构建说明再动手。产出：干净的工作区和独立分支。</p>
+          <pre><code>git clone https://github.com/&lt;owner&gt;/&lt;repo&gt;.git
+cd &lt;repo&gt;
+git checkout -b feat/personal-dashboard</code></pre>
+        </li>
+        <li>
+          <h4>确定实现方案</h4>
+          <p>列出页面文件清单（例如 <code>index.html</code>、<code>styles.css</code>、<code>app.js</code>）与三个模块的划分，明确数据统一存 <code>localStorage</code>，不引入外部依赖。产出：一份可执行的最小方案，交由人确认后再开工。</p>
+        </li>
+        <li>
+          <h4>让 Agent 实现页面与交互</h4>
+          <p>按方案让 Agent 实现待办增删改、笔记保存与链接跳转，边改边本地预览；人负责判断界面与交互是否符合预期。产出：可运行的静态页面，不在此处贴真实应用代码。</p>
+        </li>
+        <li>
+          <h4>本地验证并留下证据</h4>
+          <p>启动静态服务，逐项点验三个模块与窄屏表现，再按「改了什么 / 怎么验的 / 结果如何」整理证据。产出：一段可复述的验证记录，而不是一句「已完成」。</p>
+          <pre><code>python3 -m http.server 8080
+# 打开 http://localhost:8080 逐项点验待办、笔记与常用链接</code></pre>
+        </li>
+        <li>
+          <h4>派角色复核（可选）</h4>
+          <p>派评审或测试子 Agent 检查可访问性与窄屏表现：标题层级、键盘焦点、375px 下是否溢出。人核对具体依据再决定是否调整，不只转述结论。</p>
+        </li>
+        <li>
+          <h4>提交、推送并开 MR</h4>
+          <p>把改动提交到功能分支并推送，再用 <code>gh</code> 开 MR，描述里附上上一步的证据。产出：一个可被复核的 MR，平台会自动把它登记到需求，无需手动回填。</p>
+          <pre><code>git add -A
+git commit -m "feat: &lt;一句话说明&gt;"
+git push -u origin feat/personal-dashboard
+
+# 用 gh 开 MR
+gh pr create --base main --head feat/personal-dashboard \
+  --title "feat: &lt;标题&gt;" --body "&lt;改动与验证说明&gt;"</code></pre>
+        </li>
+      </ol>
+
+      <div class="callout violet"><b>边界：</b>不直推 main、不强推、不自行合并 PR；默认走「分支 + PR + 由你合并」，合并动作由人完成。</div>
 
       <h2 id="check">上线检查清单</h2>
       <table class="tbl">
