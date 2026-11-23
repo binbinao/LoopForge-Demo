@@ -3,18 +3,29 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="LoopForge 快速上手：打开工作区、克隆并建分支、改动并验证、推送并开 MR，附命令示例与检查清单。">
+<meta name="description" content="LoopForge 快速上手：打开工作区、克隆并建分支、改动并验证、推送并开 PR，附命令示例与检查清单。">
 <title>快速上手 · LoopForge 学习中心</title>
 <link rel="stylesheet" href="assets/site.css">
+<meta name="theme-color" content="#0a0d14">
+<link rel="canonical" href="https://binbinao.github.io/LoopForge-Demo/start.html">
+<meta property="og:title" content="快速上手 · LoopForge 学习中心">
+<meta property="og:description" content="LoopForge 快速上手：打开工作区、克隆并建分支、改动并验证、推送并开 PR，附命令示例与检查清单。">
+<meta property="og:url" content="https://binbinao.github.io/LoopForge-Demo/start.html">
+<meta property="og:image" content="https://binbinao.github.io/LoopForge-Demo/assets/og-cover.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://binbinao.github.io/LoopForge-Demo/assets/og-cover.png">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<noscript><style>.reveal{opacity:1 !important;transform:none !important}</style></noscript>
 </head>
 <body>
+<a class="skip-link" href="#main">跳到主要内容</a>
 <div class="bg-glow"></div>
 <div class="bg-grid"></div>
 
 <header>
   <div class="wrap nav">
     <a href="index.html" class="brand">
-      <span class="logo"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2l2.4 5.3L20 9l-4 4 1 6-5-3-5 3 1-6-4-4 5.6-1.7L12 2z" fill="#1a1206"/></svg></span>
+      <span class="logo"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none"><path d="M12 2l2.4 5.3L20 9l-4 4 1 6-5-3-5 3 1-6-4-4 5.6-1.7L12 2z" fill="#1a1206"/></svg></span>
       <span>LoopForge<small>LEARN</small></span>
     </a>
     <nav class="nav-links">
@@ -22,16 +33,16 @@
       <a href="modules.html">核心能力</a>
       <a href="sop.html">交付流程</a>
       <a href="mindset.html">工作方式</a>
-      <a href="start.html">快速上手</a>
+      <a href="start.html" aria-current="page">快速上手</a>
     </nav>
     <a href="start.html" class="nav-cta">开始学习 →</a>
     <button class="menu-btn" aria-label="menu" aria-expanded="false">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
     </button>
   </div>
 </header>
 
-<main>
+<main id="main">
   <section class="doc-hero wrap">
     <div class="crumbs"><a href="index.html">首页</a> <span>/</span> <span>快速上手</span></div>
     <span class="kicker">Quick Start</span>
@@ -53,7 +64,7 @@
       </ol>
     </aside>
 
-    <article class="doc-body" style="min-width:0">
+    <article class="doc-body">
       <h2 id="s1">1. 打开工作区</h2>
       <p>工作区是会话绑定的沙箱环境。进去后先确认语言与工具链齐备，再开始动手——工作区默认是空目录，不会替你检出代码。</p>
       <ul>
@@ -130,13 +141,13 @@ git checkout -b feat/personal-dashboard</code></pre>
           <p>派评审或测试子 Agent 检查可访问性与窄屏表现：标题层级、键盘焦点、375px 下是否溢出。人核对具体依据再决定是否调整，不只转述结论。</p>
         </li>
         <li>
-          <h4>提交、推送并开 MR</h4>
-          <p>把改动提交到功能分支并推送，再用 <code>gh</code> 开 MR，描述里附上上一步的证据。产出：一个可被复核的 MR，平台会自动把它登记到需求，无需手动回填。</p>
+          <h4>提交、推送并开 PR</h4>
+          <p>把改动提交到功能分支并推送，再用 <code>gh</code> 开 PR，描述里附上上一步的证据。产出：一个可被复核的 PR，平台会自动把它登记到需求，无需手动回填。</p>
           <pre><code>git add -A
 git commit -m "feat: &lt;一句话说明&gt;"
 git push -u origin feat/personal-dashboard
 
-# 用 gh 开 MR
+# 用 gh 开 PR
 gh pr create --base main --head feat/personal-dashboard \
   --title "feat: &lt;标题&gt;" --body "&lt;改动与验证说明&gt;"</code></pre>
         </li>
@@ -175,7 +186,7 @@ gh pr create --base main --head feat/personal-dashboard \
 <footer>
   <div class="wrap foot">
     <div class="brand">
-      <span class="logo" style="width:28px;height:28px;border-radius:8px"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2l2.4 5.3L20 9l-4 4 1 6-5-3-5 3 1-6-4-4 5.6-1.7L12 2z" fill="#1a1206"/></svg></span>
+      <span class="logo" style="width:28px;height:28px;border-radius:8px"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none"><path d="M12 2l2.4 5.3L20 9l-4 4 1 6-5-3-5 3 1-6-4-4 5.6-1.7L12 2z" fill="#1a1206"/></svg></span>
       <span>LoopForge<small style="font-size:8px">LEARN</small></span>
     </div>
     <div>把想法锻造成交付 · 快速上手</div>

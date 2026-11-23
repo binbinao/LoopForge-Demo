@@ -6,37 +6,48 @@
 <meta name="description" content="LoopForge 标准交付 SOP：八个节点的输入、产物与通过标准，以及三档审批权限模式。">
 <title>交付流程 · LoopForge 学习中心</title>
 <link rel="stylesheet" href="assets/site.css">
+<meta name="theme-color" content="#0a0d14">
+<link rel="canonical" href="https://binbinao.github.io/LoopForge-Demo/sop.html">
+<meta property="og:title" content="交付流程 · LoopForge 学习中心">
+<meta property="og:description" content="LoopForge 标准交付 SOP：八个节点的输入、产物与通过标准，以及三档审批权限模式。">
+<meta property="og:url" content="https://binbinao.github.io/LoopForge-Demo/sop.html">
+<meta property="og:image" content="https://binbinao.github.io/LoopForge-Demo/assets/og-cover.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://binbinao.github.io/LoopForge-Demo/assets/og-cover.png">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<noscript><style>.reveal{opacity:1 !important;transform:none !important}</style></noscript>
 </head>
 <body>
+<a class="skip-link" href="#main">跳到主要内容</a>
 <div class="bg-glow"></div>
 <div class="bg-grid"></div>
 
 <header>
   <div class="wrap nav">
     <a href="index.html" class="brand">
-      <span class="logo"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2l2.4 5.3L20 9l-4 4 1 6-5-3-5 3 1-6-4-4 5.6-1.7L12 2z" fill="#1a1206"/></svg></span>
+      <span class="logo"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none"><path d="M12 2l2.4 5.3L20 9l-4 4 1 6-5-3-5 3 1-6-4-4 5.6-1.7L12 2z" fill="#1a1206"/></svg></span>
       <span>LoopForge<small>LEARN</small></span>
     </a>
     <nav class="nav-links">
       <a href="philosophy.html">设计思想</a>
       <a href="modules.html">核心能力</a>
-      <a href="sop.html">交付流程</a>
+      <a href="sop.html" aria-current="page">交付流程</a>
       <a href="mindset.html">工作方式</a>
       <a href="start.html">快速上手</a>
     </nav>
     <a href="start.html" class="nav-cta">开始学习 →</a>
     <button class="menu-btn" aria-label="menu" aria-expanded="false">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
     </button>
   </div>
 </header>
 
-<main>
+<main id="main">
   <section class="doc-hero wrap">
     <div class="crumbs"><a href="index.html">首页</a> <span>/</span> <span>交付流程</span></div>
     <span class="kicker">Delivery Pipeline</span>
     <h1>一条需求是怎么交付的</h1>
-    <p>标准交付 SOP 把工作拆成八个连贯节点：每一步都有明确的输入、产物和通过标准，关键节点由人把关，最后自动发起 MR 完成交付。</p>
+    <p>标准交付 SOP 把工作拆成八个连贯节点：每一步都有明确的输入、产物和通过标准，关键节点由人把关，最后自动发起 PR/MR（按托管平台命名）完成交付。</p>
   </section>
 
   <div class="wrap doc">
@@ -60,7 +71,7 @@
           <div class="node"><div class="bubble">4</div><div class="lbl">独立评审</div><div class="sub">交叉检查</div></div>
           <div class="node"><div class="bubble">5</div><div class="lbl">测试验证</div><div class="sub">跑用例</div></div>
           <div class="node"><div class="bubble">6</div><div class="lbl">人工验收</div><div class="sub">把最后一关</div></div>
-          <div class="node"><div class="bubble">7</div><div class="lbl">发起 MR</div><div class="sub">提交变更</div></div>
+          <div class="node"><div class="bubble">7</div><div class="lbl">发起 PR/MR</div><div class="sub">提交变更</div></div>
           <div class="node"><div class="bubble">8</div><div class="lbl">交付汇总</div><div class="sub">沉淀结果</div></div>
         </div>
         <div class="flow-note">每个节点都产出可查阅的 <b>产物文件</b>；<b>人工验收</b> 是唯一必过的审批关卡。</div>
@@ -68,14 +79,14 @@
 
       <h2 id="detail">节点详解</h2>
       <ol class="step-list">
-        <li><h4>需求定型</h4><p>把模糊想法收敛成可交付范围：目标、边界、验收标准。产物是需求说明，后续所有节点都以它为准。</p></li>
-        <li><h4>方案设计</h4><p>确定技术路线、影响面与改动清单，明确需要新增或修改的文件，避免实现阶段反复推翻。</p></li>
-        <li><h4>开发实现</h4><p>在工作区克隆仓库、切分支、写代码，边改边验证，提交原子化 commit。</p></li>
-        <li><h4>独立评审</h4><p>由独立角色复核改动：正确性、边界条件、风险面。评审结论要能落到具体文件与行。</p></li>
-        <li><h4>测试验证</h4><p>按仓库指令执行与改动相关的测试，用真实输出作为证据；失败就回到实现节点修。</p></li>
-        <li><h4>人工验收</h4><p>由人确认交付物是否符合预期，这是唯一必过的关卡，通过后才继续向下执行。</p></li>
-        <li><h4>发起 MR</h4><p>推送分支、创建 PR/MR，平台自动登记到需求并跟踪合入状态。</p></li>
-        <li><h4>交付汇总</h4><p>沉淀本次交付的产物与结论：改了什么、验证了什么、还有什么待办。</p></li>
+        <li><h3>需求定型</h3><p>把模糊想法收敛成可交付范围：目标、边界、验收标准。产物是需求说明，后续所有节点都以它为准。</p></li>
+        <li><h3>方案设计</h3><p>确定技术路线、影响面与改动清单，明确需要新增或修改的文件，避免实现阶段反复推翻。</p></li>
+        <li><h3>开发实现</h3><p>在工作区克隆仓库、切分支、写代码，边改边验证，提交原子化 commit。</p></li>
+        <li><h3>独立评审</h3><p>由独立角色复核改动：正确性、边界条件、风险面。评审结论要能落到具体文件与行。</p></li>
+        <li><h3>测试验证</h3><p>按仓库指令执行与改动相关的测试，用真实输出作为证据；失败就回到实现节点修。</p></li>
+        <li><h3>人工验收</h3><p>由人确认交付物是否符合预期，这是唯一必过的关卡，通过后才继续向下执行。</p></li>
+        <li><h3>发起 PR/MR</h3><p>推送分支、创建 PR/MR，平台自动登记到需求并跟踪合入状态。</p></li>
+        <li><h3>交付汇总</h3><p>沉淀本次交付的产物与结论：改了什么、验证了什么、还有什么待办。</p></li>
       </ol>
 
       <h2 id="approval">三档审批权限</h2>
@@ -88,15 +99,15 @@
           <tr><td><b>完全权限</b></td><td>沙箱与外部写入直接执行</td><td>低风险、追求速度</td></tr>
         </tbody>
       </table>
-      <div class="callout"><b>注意：</b>无论哪一档，推主分支、强推、合并 PR 这类不可撤销操作都只在明确要求时执行。</div>
+      <div class="callout"><b>注意：</b>无论哪一档，推主分支、强推、合并 PR/MR 这类不可撤销操作都只在明确要求时执行。</div>
 
       <h2 id="faq">常见问题</h2>
       <h3>需求很简单，也要走完整 SOP 吗？</h3>
       <p>不必。修 bug、小改动、问答直接做；SOP 适合「要落到仓库、需要留痕与多人把关」的新需求。</p>
       <h3>中间改错了怎么办？</h3>
       <p>运行可以暂停或取消，回到实现节点重跑后续节点；工作区的未推送改动会保留，不必从头再来。</p>
-      <h3>SOP 会自己合并 MR 吗？</h3>
-      <p>不会。SOP 负责把变更推到分支并开 MR，合入由你决定。</p>
+      <h3>SOP 会自己合并 PR/MR 吗？</h3>
+      <p>不会。SOP 负责把变更推到分支并开 PR/MR，合入由你决定。</p>
 
       <div class="page-nav">
         <a href="modules.html">← 上一站：核心能力</a>
@@ -109,7 +120,7 @@
 <footer>
   <div class="wrap foot">
     <div class="brand">
-      <span class="logo" style="width:28px;height:28px;border-radius:8px"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2l2.4 5.3L20 9l-4 4 1 6-5-3-5 3 1-6-4-4 5.6-1.7L12 2z" fill="#1a1206"/></svg></span>
+      <span class="logo" style="width:28px;height:28px;border-radius:8px"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none"><path d="M12 2l2.4 5.3L20 9l-4 4 1 6-5-3-5 3 1-6-4-4 5.6-1.7L12 2z" fill="#1a1206"/></svg></span>
       <span>LoopForge<small style="font-size:8px">LEARN</small></span>
     </div>
     <div>把想法锻造成交付 · 交付流程</div>

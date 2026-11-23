@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://binbinao.github.io/LoopForge-Demo/sitemap.xml

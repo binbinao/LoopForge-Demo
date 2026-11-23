@@ -6,32 +6,43 @@
 <meta name="description" content="LoopForge 四种工作方式：自己做、用技能、派角色、走 SOP，附场景决策表与组合套路。">
 <title>工作方式 · LoopForge 学习中心</title>
 <link rel="stylesheet" href="assets/site.css">
+<meta name="theme-color" content="#0a0d14">
+<link rel="canonical" href="https://binbinao.github.io/LoopForge-Demo/mindset.html">
+<meta property="og:title" content="工作方式 · LoopForge 学习中心">
+<meta property="og:description" content="LoopForge 四种工作方式：自己做、用技能、派角色、走 SOP，附场景决策表与组合套路。">
+<meta property="og:url" content="https://binbinao.github.io/LoopForge-Demo/mindset.html">
+<meta property="og:image" content="https://binbinao.github.io/LoopForge-Demo/assets/og-cover.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://binbinao.github.io/LoopForge-Demo/assets/og-cover.png">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<noscript><style>.reveal{opacity:1 !important;transform:none !important}</style></noscript>
 </head>
 <body>
+<a class="skip-link" href="#main">跳到主要内容</a>
 <div class="bg-glow"></div>
 <div class="bg-grid"></div>
 
 <header>
   <div class="wrap nav">
     <a href="index.html" class="brand">
-      <span class="logo"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2l2.4 5.3L20 9l-4 4 1 6-5-3-5 3 1-6-4-4 5.6-1.7L12 2z" fill="#1a1206"/></svg></span>
+      <span class="logo"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none"><path d="M12 2l2.4 5.3L20 9l-4 4 1 6-5-3-5 3 1-6-4-4 5.6-1.7L12 2z" fill="#1a1206"/></svg></span>
       <span>LoopForge<small>LEARN</small></span>
     </a>
     <nav class="nav-links">
       <a href="philosophy.html">设计思想</a>
       <a href="modules.html">核心能力</a>
       <a href="sop.html">交付流程</a>
-      <a href="mindset.html">工作方式</a>
+      <a href="mindset.html" aria-current="page">工作方式</a>
       <a href="start.html">快速上手</a>
     </nav>
     <a href="start.html" class="nav-cta">开始学习 →</a>
     <button class="menu-btn" aria-label="menu" aria-expanded="false">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
     </button>
   </div>
 </header>
 
-<main>
+<main id="main">
   <section class="doc-hero wrap">
     <div class="crumbs"><a href="index.html">首页</a> <span>/</span> <span>工作方式</span></div>
     <span class="kicker">How To Work</span>
@@ -71,13 +82,13 @@
       <h2 id="c">C. 派角色</h2>
       <p>评审、测试等角色作为独立子 Agent 运行，有自己的上下文，不受实现思路影响。</p>
       <div class="grid-3">
-        <div class="tile"><h4>什么时候派</h4><p>整件事就是某个角色的本职，且工作量不小；或改动碰到高风险区域需要独立复核。</p></div>
-        <div class="tile"><h4>怎么派</h4><p>说清仓库、改动文件、要重点看什么，让对方带着完整背景开工。</p></div>
-        <div class="tile"><h4>派完做什么</h4><p>核对结论再汇报，不转述「它说没问题」，而是看它给出的具体依据。</p></div>
+        <div class="tile"><h3>什么时候派</h3><p>整件事就是某个角色的本职，且工作量不小；或改动碰到高风险区域需要独立复核。</p></div>
+        <div class="tile"><h3>怎么派</h3><p>说清仓库、改动文件、要重点看什么，让对方带着完整背景开工。</p></div>
+        <div class="tile"><h3>派完做什么</h3><p>核对结论再汇报，不转述「它说没问题」，而是看它给出的具体依据。</p></div>
       </div>
 
       <h2 id="d">D. 走 SOP</h2>
-      <p>要落到仓库的新需求或新功能，交给用途对得上的交付 SOP：从需求定型一路推进到评审、测试、验收、MR。</p>
+      <p>要落到仓库的新需求或新功能，交给用途对得上的交付 SOP：从需求定型一路推进到评审、测试、验收、PR/MR（按托管平台命名）。</p>
       <ul>
         <li>适合：新功能、跨模块改造、需要留痕与人工验收关卡的交付。</li>
         <li>不适合：修 bug、小改动、纯问答——这些自己做更快。</li>
@@ -98,8 +109,8 @@
       </table>
 
       <h2 id="mix">组合套路</h2>
-      <div class="callout"><b>标准组合：</b>自己做实现 → 派评审角色独立检查 → 自己按评审意见修 → 跑测试 → 推送开 PR。风险高的改动尤其别省掉评审这一步。</div>
-      <div class="callout violet"><b>SOP 内嵌组合：</b>SOP 的评审节点本身就是角色派发；你在 SOP 运行中也可以直接自己的方式补看代码，两者并不冲突。</div>
+      <div class="callout"><b>标准组合：</b>自己做实现 → 派评审角色独立检查 → 自己按评审意见修 → 跑测试 → 推送开 PR/MR。风险高的改动尤其别省掉评审这一步。</div>
+      <div class="callout violet"><b>SOP 内嵌组合：</b>SOP 的评审节点本身就是角色派发；你在 SOP 运行中也可以直接用自己的方式补看代码，两者并不冲突。</div>
 
       <div class="page-nav">
         <a href="sop.html">← 上一站：交付流程</a>
@@ -112,7 +123,7 @@
 <footer>
   <div class="wrap foot">
     <div class="brand">
-      <span class="logo" style="width:28px;height:28px;border-radius:8px"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2l2.4 5.3L20 9l-4 4 1 6-5-3-5 3 1-6-4-4 5.6-1.7L12 2z" fill="#1a1206"/></svg></span>
+      <span class="logo" style="width:28px;height:28px;border-radius:8px"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none"><path d="M12 2l2.4 5.3L20 9l-4 4 1 6-5-3-5 3 1-6-4-4 5.6-1.7L12 2z" fill="#1a1206"/></svg></span>
       <span>LoopForge<small style="font-size:8px">LEARN</small></span>
     </div>
     <div>把想法锻造成交付 · 工作方式</div>
