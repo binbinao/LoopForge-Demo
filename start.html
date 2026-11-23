@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="LoopForge 快速上手：打开工作区、克隆并建分支、改动并验证、推送并开 MR，附命令示例与检查清单。">
+<title>快速上手 · LoopForge 学习中心</title>
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+<div class="bg-glow"></div>
+<div class="bg-grid"></div>
+
+<header>
+  <div class="wrap nav">
+    <a href="index.html" class="brand">
+      <span class="logo"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2l2.4 5.3L20 9l-4 4 1 6-5-3-5 3 1-6-4-4 5.6-1.7L12 2z" fill="#1a1206"/></svg></span>
+      <span>LoopForge<small>LEARN</small></span>
+    </a>
+    <nav class="nav-links">
+      <a href="modules.html">核心能力</a>
+      <a href="sop.html">交付流程</a>
+      <a href="mindset.html">工作方式</a>
+      <a href="start.html">快速上手</a>
+    </nav>
+    <a href="start.html" class="nav-cta">开始学习 →</a>
+    <button class="menu-btn" aria-label="menu" aria-expanded="false">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+  </div>
+</header>
+
+<main>
+  <section class="doc-hero wrap">
+    <div class="crumbs"><a href="index.html">首页</a> <span>/</span> <span>快速上手</span></div>
+    <span class="kicker">Quick Start</span>
+    <h1>四步开始你的第一次交付</h1>
+    <p>从建分支到开 PR，这套节奏可以复用在每一个需求上。下面每一步都给出真实命令和验证方式，照做即可。</p>
+  </section>
+
+  <div class="wrap doc">
+    <aside class="toc">
+      <div class="toc-title">本页目录</div>
+      <ol>
+        <li><a href="#s1">1. 打开工作区</a></li>
+        <li><a href="#s2">2. 克隆并建分支</a></li>
+        <li><a href="#s3">3. 改动并验证</a></li>
+        <li><a href="#s4">4. 推送并开 PR</a></li>
+        <li><a href="#check">上线检查清单</a></li>
+        <li><a href="#faq">常见坑</a></li>
+      </ol>
+    </aside>
+
+    <article class="doc-body">
+      <h2 id="s1">1. 打开工作区</h2>
+      <p>工作区是会话绑定的沙箱环境。进去后先确认语言与工具链齐备，再开始动手——工作区默认是空目录，不会替你检出代码。</p>
+      <ul>
+        <li>拿到的是真实终端与文件系统，可以跑构建、跑测试、起本地服务。</li>
+        <li>Git 与 GitHub 凭证已配好，可以直接 clone 与 push。</li>
+        <li>会话结束或空闲回收后，文件快照可以恢复，不必重来。</li>
+      </ul>
+
+      <h2 id="s2">2. 克隆并建分支</h2>
+      <p>永远在功能分支上工作，主线保持干净。</p>
+      <pre><code>git clone https://github.com/&lt;owner&gt;/&lt;repo&gt;.git
+cd &lt;repo&gt;
+git checkout -b feat/&lt;short-name&gt;</code></pre>
+      <p>先读仓库里的说明文件（README、CONTRIBUTING、构建脚本），确认测试怎么跑，再动代码。</p>
+
+      <h2 id="s3">3. 改动并验证</h2>
+      <p>改动尽量小而聚焦，一次 commit 一件事。改完必须验证：跑与改动相关的测试、本地起服务看实际效果，用输出作为证据。</p>
+      <pre><code># 示例：静态站点本地预览
+python3 -m http.server 8080
+# 打开 http://localhost:8080 逐个点开导航与页面检查</code></pre>
+      <div class="callout"><b>验证标准：</b>能说清「改了什么、怎么验的、结果如何」。只跑过一条命令就宣称通过，不算验证。</div>
+
+      <h2 id="s4">4. 推送并开 PR</h2>
+      <pre><code>git add -A
+git commit -m "feat: &lt;一句话说明&gt;"
+git push -u origin feat/&lt;short-name&gt;
+
+# 用 gh
+gh pr create --base main --head feat/&lt;short-name&gt; \
+  --title "feat: &lt;标题&gt;" --body "&lt;改动与验证说明&gt;"</code></pre>
+      <p>没有 gh 时同样可以用 GitHub API 开 PR。开好的 PR 会自动登记到需求并跟踪合入，不需要你手动回填。</p>
+      <div class="callout violet"><b>边界：</b>推主分支、强推、合并 PR 只在明确要求时执行；默认走「分支 + PR + 由你合并」。</div>
+
+      <h2 id="check">上线检查清单</h2>
+      <table class="tbl">
+        <thead><tr><th>检查项</th><th>通过标准</th></tr></thead>
+        <tbody>
+          <tr><td>分支隔离</td><td>改动只在功能分支，main 未被直推</td></tr>
+          <tr><td>构建/测试</td><td>与改动相关的命令全部通过</td></tr>
+          <tr><td>线上效果</td><td>本地预览或部署后逐页点开，无 404、无死链</td></tr>
+          <tr><td>移动端</td><td>窄屏下导航可展开、可跳转</td></tr>
+          <tr><td>PR 描述</td><td>写清改了什么、怎么验证、影响面</td></tr>
+        </tbody>
+      </table>
+
+      <h2 id="faq">常见坑</h2>
+      <h3>点导航没反应？</h3>
+      <p>先确认链接指向的目标页面或锚点真的存在。锚点 <code>#id</code> 需要有对应 <code>id</code> 的元素；多页站点则要确认子页面文件已经提交并部署。</p>
+      <h3>线上和本地不一致？</h3>
+      <p>静态站点常常是缓存或构建产物未更新：确认分支已合并、构建已跑完，再用无痕窗口访问。</p>
+      <h3>样式在窄屏错乱？</h3>
+      <p>检查媒体查询里是否把导航隐藏了却没给出替代入口——隐藏导航必须配一个可用的菜单按钮。</p>
+
+      <div class="page-nav">
+        <a href="mindset.html">← 上一站：工作方式</a>
+        <a class="next" href="index.html">返回首页 →</a>
+      </div>
+    </article>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div class="brand">
+      <span class="logo" style="width:28px;height:28px;border-radius:8px"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2l2.4 5.3L20 9l-4 4 1 6-5-3-5 3 1-6-4-4 5.6-1.7L12 2z" fill="#1a1206"/></svg></span>
+      <span>LoopForge<small style="font-size:8px">LEARN</small></span>
+    </div>
+    <div>把想法锻造成交付 · 快速上手</div>
+  </div>
+</footer>
+<script src="assets/site.js"></script>
+</body>
+</html>
