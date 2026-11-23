@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="LoopForge 四种工作方式：自己做、用技能、派角色、走 SOP，附场景决策表与组合套路。">
+<title>工作方式 · LoopForge 学习中心</title>
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+<div class="bg-glow"></div>
+<div class="bg-grid"></div>
+
+<header>
+  <div class="wrap nav">
+    <a href="index.html" class="brand">
+      <span class="logo"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2l2.4 5.3L20 9l-4 4 1 6-5-3-5 3 1-6-4-4 5.6-1.7L12 2z" fill="#1a1206"/></svg></span>
+      <span>LoopForge<small>LEARN</small></span>
+    </a>
+    <nav class="nav-links">
+      <a href="modules.html">核心能力</a>
+      <a href="sop.html">交付流程</a>
+      <a href="mindset.html">工作方式</a>
+      <a href="start.html">快速上手</a>
+    </nav>
+    <a href="start.html" class="nav-cta">开始学习 →</a>
+    <button class="menu-btn" aria-label="menu" aria-expanded="false">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+  </div>
+</header>
+
+<main>
+  <section class="doc-hero wrap">
+    <div class="crumbs"><a href="index.html">首页</a> <span>/</span> <span>工作方式</span></div>
+    <span class="kicker">How To Work</span>
+    <h1>四种工作方式，怎么选</h1>
+    <p>面对一个任务，先判断该自己做、用技能、派角色，还是交给 SOP。选对方式，效率和质量都事半功倍；选错方式，要么过度设计，要么把关不足。</p>
+  </section>
+
+  <div class="wrap doc">
+    <aside class="toc">
+      <div class="toc-title">本页目录</div>
+      <ol>
+        <li><a href="#a">A. 自己做</a></li>
+        <li><a href="#b">B. 用技能</a></li>
+        <li><a href="#c">C. 派角色</a></li>
+        <li><a href="#d">D. 走 SOP</a></li>
+        <li><a href="#decide">场景决策表</a></li>
+        <li><a href="#mix">组合套路</a></li>
+      </ol>
+    </aside>
+
+    <article class="doc-body">
+      <h2 id="a">A. 自己做</h2>
+      <p>问答、解释、只读查询和小范围改动默认自己做。用户说「直接改」「你来做」时，也自己做，不必层层转交。</p>
+      <ul>
+        <li>适合：概念解释、定位问题、看代码、改一两处文案或样式。</li>
+        <li>不适合：需要独立视角复核的改动、需要完整留痕的交付。</li>
+        <li>要点：自己做的活也要给出证据——改了哪些文件、跑了什么命令、结果如何。</li>
+      </ul>
+
+      <h2 id="b">B. 用技能</h2>
+      <p>任务和某个技能的描述对得上时，先加载技能，照它的说明执行。技能把流程、模板、工具调用方式打包好，避免每次从头摸索。</p>
+      <ul>
+        <li>适合：格式转换、报告/文档生成、检索与分析等有成套章法的任务。</li>
+        <li>要点：加载技能不需要额外确认，但技能里的写入操作仍受当前审批模式约束。</li>
+      </ul>
+
+      <h2 id="c">C. 派角色</h2>
+      <p>评审、测试等角色作为独立子 Agent 运行，有自己的上下文，不受实现思路影响。</p>
+      <div class="grid-3">
+        <div class="tile"><h4>什么时候派</h4><p>整件事就是某个角色的本职，且工作量不小；或改动碰到高风险区域需要独立复核。</p></div>
+        <div class="tile"><h4>怎么派</h4><p>说清仓库、改动文件、要重点看什么，让对方带着完整背景开工。</p></div>
+        <div class="tile"><h4>派完做什么</h4><p>核对结论再汇报，不转述「它说没问题」，而是看它给出的具体依据。</p></div>
+      </div>
+
+      <h2 id="d">D. 走 SOP</h2>
+      <p>要落到仓库的新需求或新功能，交给用途对得上的交付 SOP：从需求定型一路推进到评审、测试、验收、MR。</p>
+      <ul>
+        <li>适合：新功能、跨模块改造、需要留痕与人工验收关卡的交付。</li>
+        <li>不适合：修 bug、小改动、纯问答——这些自己做更快。</li>
+        <li>要点：SOP 起点是「需求」，先把范围写清楚，再谈实现。</li>
+      </ul>
+
+      <h2 id="decide">场景决策表</h2>
+      <table class="tbl">
+        <thead><tr><th>场景</th><th>推荐方式</th><th>原因</th></tr></thead>
+        <tbody>
+          <tr><td>解释一段代码、查资料</td><td>自己做</td><td>只读，不存在交付风险</td></tr>
+          <tr><td>改文案、调样式、小修复</td><td>自己做</td><td>改动面小，验证快</td></tr>
+          <tr><td>生成文档、报告、格式转换</td><td>用技能</td><td>有成套章法与模板</td></tr>
+          <tr><td>上线前的独立评审</td><td>派角色</td><td>需要与实现者独立的视角</td></tr>
+          <tr><td>新功能从 0 到 1 交付</td><td>走 SOP</td><td>多环节、需留痕与人工验收</td></tr>
+          <tr><td>资金/积分、并发、鉴权、迁移类改动</td><td>自己做 + 派角色复核</td><td>出错代价高，需要双保险</td></tr>
+        </tbody>
+      </table>
+
+      <h2 id="mix">组合套路</h2>
+      <div class="callout"><b>标准组合：</b>自己做实现 → 派评审角色独立检查 → 自己按评审意见修 → 跑测试 → 推送开 PR。风险高的改动尤其别省掉评审这一步。</div>
+      <div class="callout violet"><b>SOP 内嵌组合：</b>SOP 的评审节点本身就是角色派发；你在 SOP 运行中也可以直接自己的方式补看代码，两者并不冲突。</div>
+
+      <div class="page-nav">
+        <a href="sop.html">← 上一站：交付流程</a>
+        <a class="next" href="start.html">下一站：快速上手 →</a>
+      </div>
+    </article>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div class="brand">
+      <span class="logo" style="width:28px;height:28px;border-radius:8px"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2l2.4 5.3L20 9l-4 4 1 6-5-3-5 3 1-6-4-4 5.6-1.7L12 2z" fill="#1a1206"/></svg></span>
+      <span>LoopForge<small style="font-size:8px">LEARN</small></span>
+    </div>
+    <div>把想法锻造成交付 · 工作方式</div>
+  </div>
+</footer>
+<script src="assets/site.js"></script>
+</body>
+</html>
