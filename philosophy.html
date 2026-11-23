@@ -6,19 +6,30 @@
 <meta name="description" content="LoopForge 的设计思想：为什么要把对话变成流程，人与 AI 如何分工与共创，这套取舍带来了什么价值。">
 <title>设计思想 · LoopForge 学习中心</title>
 <link rel="stylesheet" href="assets/site.css">
+<meta name="theme-color" content="#0a0d14">
+<link rel="canonical" href="https://binbinao.github.io/LoopForge-Demo/philosophy.html">
+<meta property="og:title" content="设计思想 · LoopForge 学习中心">
+<meta property="og:description" content="LoopForge 的设计思想：为什么要把对话变成流程，人与 AI 如何分工与共创，这套取舍带来了什么价值。">
+<meta property="og:url" content="https://binbinao.github.io/LoopForge-Demo/philosophy.html">
+<meta property="og:image" content="https://binbinao.github.io/LoopForge-Demo/assets/og-cover.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://binbinao.github.io/LoopForge-Demo/assets/og-cover.png">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<noscript><style>.reveal{opacity:1 !important;transform:none !important}</style></noscript>
 </head>
 <body>
+<a class="skip-link" href="#main">跳到主要内容</a>
 <div class="bg-glow"></div>
 <div class="bg-grid"></div>
 
 <header>
   <div class="wrap nav">
     <a href="index.html" class="brand">
-      <span class="logo"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2l2.4 5.3L20 9l-4 4 1 6-5-3-5 3 1-6-4-4 5.6-1.7L12 2z" fill="#1a1206"/></svg></span>
+      <span class="logo"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none"><path d="M12 2l2.4 5.3L20 9l-4 4 1 6-5-3-5 3 1-6-4-4 5.6-1.7L12 2z" fill="#1a1206"/></svg></span>
       <span>LoopForge<small>LEARN</small></span>
     </a>
     <nav class="nav-links">
-      <a href="philosophy.html">设计思想</a>
+      <a href="philosophy.html" aria-current="page">设计思想</a>
       <a href="modules.html">核心能力</a>
       <a href="sop.html">交付流程</a>
       <a href="mindset.html">工作方式</a>
@@ -26,12 +37,12 @@
     </nav>
     <a href="start.html" class="nav-cta">开始学习 →</a>
     <button class="menu-btn" aria-label="menu" aria-expanded="false">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
     </button>
   </div>
 </header>
 
-<main>
+<main id="main">
   <section class="doc-hero wrap">
     <div class="crumbs"><a href="index.html">首页</a> <span>/</span> <span>设计思想</span></div>
     <span class="kicker">Why We Built It</span>
@@ -58,34 +69,34 @@
       <p>过去一段时间，AI 写代码的能力提升得很快，但很多团队的实际体感是：<b>单个任务确实快了，整体交付并没有变快。</b>瓶颈不在模型，而在人和 AI 的协作方式。</p>
       <div class="grid-2">
         <div class="tile">
-          <h4>对话用完即弃</h4>
+          <h3>对话用完即弃</h3>
           <p>一个重要决定是在聊天里谈成的，为什么这么定、当时排除了哪些方案，三天后没有人说得清。</p>
         </div>
         <div class="tile">
-          <h4>产出无法验收</h4>
+          <h3>产出无法验收</h3>
           <p>拿到一段「看起来对」的代码，改了什么、边界在哪、有没有副作用，全靠自己再读一遍去猜。</p>
         </div>
         <div class="tile">
-          <h4>质量靠运气</h4>
+          <h3>质量靠运气</h3>
           <p>同一个需求，状态好的时候给出一份能维护的实现，状态差的时候给出一坨能跑但没人敢改的东西。</p>
         </div>
         <div class="tile">
-          <h4>人退化成点按钮的</h4>
+          <h3>人退化成点按钮的</h3>
           <p>最后只剩下「通过 / 不通过」两个动作，判断权名义上还在人手里，实际上已经交出去了。</p>
         </div>
       </div>
       <p>这四件事指向同一个缺口：<b>缺的不是更强的模型，而是一套让人和 AI 各自发挥长处的协作结构。</b>LoopForge 做的就是把这种结构做出来——把一次性的对话，变成有输入、有产物、有验收标准的交付过程。</p>
 
       <h2 id="bet">三个基本判断</h2>
-      <p>整平台的设计，其实就压在三句话上。后面所有功能，都是这三句话的展开。</p>
+      <p>整个平台的设计，其实就压在三句话上。后面所有功能，都是这三句话的展开。</p>
 
-      <h3>判断一：人做判断，AI 做执行</h3>
+      <h3 id="judgement-1">判断一：人做判断，AI 做执行</h3>
       <p>决策权不外包。做什么、不做什么、哪条路更合适、能不能上线，这些由人拍板；查资料、写代码、跑测试、整理产物，这些交给 AI。让 AI 参与方案，但不让它替人做决定。</p>
 
-      <h3>判断二：把对话变成流程</h3>
+      <h3 id="judgement-2">判断二：把对话变成流程</h3>
       <p>一次性的提示词换不来稳定的结果，因为每次都要重新交代背景。流程不同：每个环节有明确的输入、产物和通过标准，上一个环节的产物就是下一个环节的输入，不需要靠记忆拼接。经验也因此能沉淀下来，而不是散落在几十个会话里。</p>
 
-      <h3>判断三：信任来自证据，不来自语气</h3>
+      <h3 id="judgement-3">判断三：信任来自证据，不来自语气</h3>
       <p>「已经完成」这四个字没有信息量。有信息量的是：改了哪几个文件、跑了哪条命令、输出是什么、产物在哪。所以系统里每一次交付都要能被核对，而不是被相信。</p>
 
       <div class="callout"><b>一句话概括：</b>把人放在设计者和验收者的位置，把 AI 放在执行者和被检查者的位置，再用流程把两头缝起来。</div>
@@ -94,27 +105,27 @@
       <p>共创不是在输入框里写一句更好的提示词。它是六个来回，人一直在场，但不必一直在打字。</p>
       <ol class="step-list">
         <li>
-          <h4>人把模糊想法写成需求</h4>
+          <h3>人把模糊想法写成需求</h3>
           <p>说清楚要做什么、明确不做什么、怎么算做完。AI 在这一步的角色是追问者——把没想清楚的边界、遗漏的场景摆到桌面上，而不是急着给方案。</p>
         </li>
         <li>
-          <h4>共同定方案，人做取舍</h4>
+          <h3>共同定方案，人做取舍</h3>
           <p>AI 摆出两三条可行路线，连带各自代价：改动面多大、有什么风险、以后好不好维护。人选择其中一条。这一步是整个协作里最值钱的地方，也是唯一不能外包的地方。</p>
         </li>
         <li>
-          <h4>AI 在真实环境里动手</h4>
+          <h3>AI 在真实环境里动手</h3>
           <p>不是给一段代码让你自己粘，而是在工作区里克隆仓库、建分支、改文件、跑构建。过程对你可见，你随时可以插进去看一眼现在到哪了。</p>
         </li>
         <li>
-          <h4>换一双眼睛复核</h4>
+          <h3>换一双眼睛复核</h3>
           <p>实现完之后，由独立的评审和测试角色再看一遍。它们没有参与实现，不会被原来的思路带偏，看到的是改动本身和真实输出，而不是「我觉得没问题」。</p>
         </li>
         <li>
-          <h4>人在关键节点验收</h4>
+          <h3>人在关键节点验收</h3>
           <p>你面对的不是一堆过程日志，而是产物：需求说明、设计方案、改动清单、测试结果。你只需要回答一个问题——这些证据够不够支撑「可以了」。</p>
         </li>
         <li>
-          <h4>把这次的路径固化下来</h4>
+          <h3>把这次的路径固化下来</h3>
           <p>做完一次，把走得通的那条路沉淀成 SOP、技能或角色。下次遇到同类需求，不用重新教一遍 AI，直接复用上次的判断和步骤。</p>
         </li>
       </ol>
@@ -126,7 +137,7 @@
       <table class="tbl">
         <thead><tr><th>主张</th><th>对应机制</th><th>你会看到什么</th></tr></thead>
         <tbody>
-          <tr><td>需求是工作单元</td><td>需求关联仓库、绑定 SOP</td><td>一个需求一条链路，从 backlog 一路走到 MR 合入</td></tr>
+          <tr><td>需求是工作单元</td><td>需求关联仓库、绑定 SOP</td><td>一个需求一条链路，从 backlog 一路走到 PR/MR（按托管平台命名）合入</td></tr>
           <tr><td>过程必须可追溯</td><td>SOP 节点 + 产物文件</td><td>需求说明、方案、评审意见、测试报告都是文件，能翻回去看</td></tr>
           <tr><td>判断权留在人手里</td><td>审批节点 + 三档审批权限</td><td>不可逆的操作前一定会停一下，等你说可以</td></tr>
           <tr><td>信任靠证据</td><td>工作区真实执行 + 独立评审角色</td><td>真实命令输出、真实 diff、独立于实现者的复核结论</td></tr>
@@ -139,15 +150,15 @@
       <p>任何设计都是放弃一部分东西换另一部分。LoopForge 明确放弃的三样，正好对应它换回来的三样。</p>
       <div class="grid-3">
         <div class="tile">
-          <h4>放弃「一句话全自动」</h4>
+          <h3>放弃「一句话全自动」</h3>
           <p>换回可交付。全自动能做出一个演示，做不出一个三年后还有人敢改的系统，因为没有人能解释其中每个决定。</p>
         </div>
         <div class="tile">
-          <h4>放弃「AI 说好就好」</h4>
+          <h3>放弃「AI 说好就好」</h3>
           <p>换回可维护。多花一步独立复核的时间，省掉的是上线后排查到凌晨的成本。</p>
         </div>
         <div class="tile">
-          <h4>放弃「什么都自己写」</h4>
+          <h3>放弃「什么都自己写」</h3>
           <p>换回规模。人的精力有限，把它花在判断和验收上，产出比亲自敲每一行更大。</p>
         </div>
       </div>
@@ -157,15 +168,15 @@
       <p>这可能是你最关心的问题。分三个层面看，每一层都能落到具体的事情上。</p>
       <div class="grid-3">
         <div class="tile">
-          <h4>对个人</h4>
+          <h3>对个人</h3>
           <p>从「写代码的人」变成「定义问题、判断方案的人」。能力上限不再由打字速度决定，而由判断力决定，而判断力是可以积累的。</p>
         </div>
         <div class="tile">
-          <h4>对团队</h4>
+          <h3>对团队</h3>
           <p>质量下限被流程托住，不再依赖某个人当天状态好不好。新人照着 SOP 也能参与交付，而不是先读三个月代码。</p>
         </div>
         <div class="tile">
-          <h4>对组织</h4>
+          <h3>对组织</h3>
           <p>过程留痕、可审计，风险点有明确的责任人。方法沉淀成 SOP 和技能，人流动了，做法还在。</p>
         </div>
       </div>
@@ -191,7 +202,7 @@
 <footer>
   <div class="wrap foot">
     <div class="brand">
-      <span class="logo" style="width:28px;height:28px;border-radius:8px"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2l2.4 5.3L20 9l-4 4 1 6-5-3-5 3 1-6-4-4 5.6-1.7L12 2z" fill="#1a1206"/></svg></span>
+      <span class="logo" style="width:28px;height:28px;border-radius:8px"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none"><path d="M12 2l2.4 5.3L20 9l-4 4 1 6-5-3-5 3 1-6-4-4 5.6-1.7L12 2z" fill="#1a1206"/></svg></span>
       <span>LoopForge<small style="font-size:8px">LEARN</small></span>
     </div>
     <div>把想法锻造成交付 · 设计思想</div>

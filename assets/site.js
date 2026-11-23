@@ -38,6 +38,9 @@
   var here = location.pathname.split('/').pop() || 'index.html';
   document.querySelectorAll('.nav-links a').forEach(function (a) {
     var target = a.getAttribute('href') || '';
-    if (target.split('#')[0] === here) a.classList.add('active');
+    if (target.split('#')[0] === here) {
+      a.classList.add('active');
+      a.setAttribute('aria-current', 'page');
+    }
   });
 })();

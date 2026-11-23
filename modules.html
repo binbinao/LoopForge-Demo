@@ -3,35 +3,46 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="LoopForge 六大核心能力详解：工作区、SOP 工作流、角色与子 Agent、技能、需求管理、Git 与 MR 交付。">
+<meta name="description" content="LoopForge 六大核心能力详解：工作区、SOP 工作流、角色与子 Agent、技能、需求管理、Git 与 PR/MR 交付。">
 <title>六大核心能力 · LoopForge 学习中心</title>
 <link rel="stylesheet" href="assets/site.css">
+<meta name="theme-color" content="#0a0d14">
+<link rel="canonical" href="https://binbinao.github.io/LoopForge-Demo/modules.html">
+<meta property="og:title" content="六大核心能力 · LoopForge 学习中心">
+<meta property="og:description" content="LoopForge 六大核心能力详解：工作区、SOP 工作流、角色与子 Agent、技能、需求管理、Git 与 PR/MR 交付。">
+<meta property="og:url" content="https://binbinao.github.io/LoopForge-Demo/modules.html">
+<meta property="og:image" content="https://binbinao.github.io/LoopForge-Demo/assets/og-cover.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://binbinao.github.io/LoopForge-Demo/assets/og-cover.png">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<noscript><style>.reveal{opacity:1 !important;transform:none !important}</style></noscript>
 </head>
 <body>
+<a class="skip-link" href="#main">跳到主要内容</a>
 <div class="bg-glow"></div>
 <div class="bg-grid"></div>
 
 <header>
   <div class="wrap nav">
     <a href="index.html" class="brand">
-      <span class="logo"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2l2.4 5.3L20 9l-4 4 1 6-5-3-5 3 1-6-4-4 5.6-1.7L12 2z" fill="#1a1206"/></svg></span>
+      <span class="logo"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none"><path d="M12 2l2.4 5.3L20 9l-4 4 1 6-5-3-5 3 1-6-4-4 5.6-1.7L12 2z" fill="#1a1206"/></svg></span>
       <span>LoopForge<small>LEARN</small></span>
     </a>
     <nav class="nav-links">
       <a href="philosophy.html">设计思想</a>
-      <a href="modules.html">核心能力</a>
+      <a href="modules.html" aria-current="page">核心能力</a>
       <a href="sop.html">交付流程</a>
       <a href="mindset.html">工作方式</a>
       <a href="start.html">快速上手</a>
     </nav>
     <a href="start.html" class="nav-cta">开始学习 →</a>
     <button class="menu-btn" aria-label="menu" aria-expanded="false">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
     </button>
   </div>
 </header>
 
-<main>
+<main id="main">
   <section class="doc-hero wrap">
     <div class="crumbs"><a href="index.html">首页</a> <span>/</span> <span>核心能力</span></div>
     <span class="kicker">Core Concepts</span>
@@ -48,7 +59,7 @@
         <li><a href="#roles">3. 角色与子 Agent</a></li>
         <li><a href="#skills">4. 技能 Skills</a></li>
         <li><a href="#issues">5. 需求管理 Issues</a></li>
-        <li><a href="#git">6. Git 与 MR 交付</a></li>
+        <li><a href="#git">6. Git 与 PR/MR 交付</a></li>
       </ol>
     </aside>
 
@@ -56,8 +67,8 @@
       <h2 id="workspace">1. 工作区 Workspace</h2>
       <p>工作区是会话绑定的沙箱环境，是 Agent 真正动手的地方。文件读写、命令执行、构建、测试都发生在里面，平台按本轮发言人的个人凭证配好 Git 与 GitHub 访问。</p>
       <div class="grid-2">
-        <div class="tile"><h4>隔离与可恢复</h4><p>每个会话有自己的沙箱与文件快照，切走或空闲回收后能恢复现场；开区默认是空目录，仓库自己 clone。</p></div>
-        <div class="tile"><h4>按需选环境</h4><p>按任务需要的语言与工具链选择运行环境（如通用 Docker、原生沙箱），环境不对就切，而不是硬凑。</p></div>
+        <div class="tile"><h3>隔离与可恢复</h3><p>每个会话有自己的沙箱与文件快照，切走或空闲回收后能恢复现场；开区默认是空目录，仓库自己 clone。</p></div>
+        <div class="tile"><h3>按需选环境</h3><p>按任务需要的语言与工具链选择运行环境（如通用 Docker、原生沙箱），环境不对就切，而不是硬凑。</p></div>
       </div>
       <h3>关键约定</h3>
       <ul>
@@ -70,7 +81,7 @@
       <h2 id="sop">2. SOP 工作流</h2>
       <p>SOP 把一条需求从定型到交付串成可编排的节点链路。每个节点有自己的输入、产物与通过标准，关键节点由人把关，过程全程可追溯。</p>
       <ul>
-        <li><b>节点化：</b>需求定型 → 方案设计 → 开发实现 → 独立评审 → 测试验证 → 人工验收 → 发起 MR → 交付汇总。</li>
+        <li><b>节点化：</b>需求定型 → 方案设计 → 开发实现 → 独立评审 → 测试验证 → 人工验收 → 发起 PR/MR（按托管平台命名） → 交付汇总。</li>
         <li><b>产物沉淀：</b>每个节点都产出可查阅的产物文件，后续节点基于产物推进，而不是靠上下文口头传递。</li>
         <li><b>可暂停可续跑：</b>运行可以停下、恢复，改完代码回到后续节点重跑，不必从头再来。</li>
       </ul>
@@ -79,9 +90,9 @@
       <h2 id="roles">3. 角色与子 Agent</h2>
       <p>评审、测试等角色可以作为独立子 Agent 被派发，拥有自己的上下文与工具，与「做的人」相互独立。</p>
       <div class="grid-3">
-        <div class="tile"><h4>独立评审</h4><p>只看改动与风险点，不受实现思路影响，给出可核对的结论。</p></div>
-        <div class="tile"><h4>整套测试</h4><p>按仓库指令跑用例、复现问题，用真实输出说话。</p></div>
-        <div class="tile"><h4>并行协作</h4><p>互不依赖的几块工作同时派发，缩短整体耗时。</p></div>
+        <div class="tile"><h3>独立评审</h3><p>只看改动与风险点，不受实现思路影响，给出可核对的结论。</p></div>
+        <div class="tile"><h3>整套测试</h3><p>按仓库指令跑用例、复现问题，用真实输出说话。</p></div>
+        <div class="tile"><h3>并行协作</h3><p>互不依赖的几块工作同时派发，缩短整体耗时。</p></div>
       </div>
       <p>什么时候派角色：整件事就是某个角色的本职、工作量不小，或改动碰到资金/积分、并发、鉴权权限、数据迁移、对外接口这类出错代价高的地方。</p>
 
@@ -94,26 +105,26 @@
       </ul>
 
       <h2 id="issues">5. 需求管理 Issues</h2>
-      <p>需求是 LoopForge 的工作单元：从 backlog 一路走到完成，关联仓库、绑定 SOP、派发运行、跟踪 MR 合入状态。</p>
+      <p>需求是 LoopForge 的工作单元：从 backlog 一路走到完成，关联仓库、绑定 SOP、派发运行、跟踪 PR/MR 合入状态。</p>
       <table class="tbl">
         <thead><tr><th>阶段</th><th>做什么</th></tr></thead>
         <tbody>
           <tr><td>backlog</td><td>记录想法与范围，关联目标仓库</td></tr>
           <tr><td>todo / in_progress</td><td>定型需求、派发运行，进入实现</td></tr>
           <tr><td>in_review</td><td>评审与测试，处理发现的问题</td></tr>
-          <tr><td>done / closed</td><td>MR 合入、交付汇总、关闭需求</td></tr>
+          <tr><td>done / closed</td><td>PR/MR 合入、交付汇总、关闭需求</td></tr>
         </tbody>
       </table>
 
-      <h2 id="git">6. Git 与 MR 交付</h2>
-      <p>克隆、建分支、提交、推送、开 MR 由 Agent 自己完成；开好的 PR/MR 会自动登记到需求并跟踪合入，不需要手动回填。</p>
+      <h2 id="git">6. Git 与 PR/MR 交付</h2>
+      <p>克隆、建分支、提交、推送、开 PR/MR 由 Agent 自己完成；开好的 PR/MR 会自动登记到需求并跟踪合入，不需要手动回填。</p>
       <pre><code>git clone &lt;repo-url&gt; &amp;&amp; cd &lt;repo&gt;
 git checkout -b feat/your-change
 # 改动 + 验证
 git add -A &amp;&amp; git commit -m "feat: your change"
 git push -u origin feat/your-change
 # 开 PR（gh 或 GitHub API）</code></pre>
-      <div class="callout violet"><b>安全边界：</b>推主分支、强推、合并 PR 这类不可撤销操作，只在用户明确要求时执行；平时一律走分支 + PR。</div>
+      <div class="callout violet"><b>安全边界：</b>推主分支、强推、合并 PR/MR 这类不可撤销操作，只在用户明确要求时执行；平时一律走分支 + PR/MR。</div>
 
       <div class="page-nav">
         <a href="philosophy.html">← 上一站：设计思想</a>
@@ -126,7 +137,7 @@ git push -u origin feat/your-change
 <footer>
   <div class="wrap foot">
     <div class="brand">
-      <span class="logo" style="width:28px;height:28px;border-radius:8px"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2l2.4 5.3L20 9l-4 4 1 6-5-3-5 3 1-6-4-4 5.6-1.7L12 2z" fill="#1a1206"/></svg></span>
+      <span class="logo" style="width:28px;height:28px;border-radius:8px"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none"><path d="M12 2l2.4 5.3L20 9l-4 4 1 6-5-3-5 3 1-6-4-4 5.6-1.7L12 2z" fill="#1a1206"/></svg></span>
       <span>LoopForge<small style="font-size:8px">LEARN</small></span>
     </div>
     <div>把想法锻造成交付 · 核心能力</div>
